@@ -5,21 +5,41 @@
     <script defer data-domain="oxide.club" src="https://plausible.io/js/script.js"></script>
 
     <style>
+        @media (prefers-color-scheme: light) {
+            :root {
+                --background-color: white;
+                --foreground-color: black;
+                --link-color: blue;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: black;
+                --foreground-color: white;
+                --link-color: cyan;
+            }
+        }
+
         body {
             margin: 1em auto;
-            max-width: 40em;
+            max-width: 50em;
             padding: 0 .62em;
             font: 1.2em/1.62 sans-serif;
+            background: var(--background-color);
+	        color: var(--foreground-color);
         }
 
         h1, h2, h3 {
             line-height: 1.2;
         }
 
-        @media print {
-            body {
-                max-width: none
-            }
+        a {
+            color: var(--link-color);
+        }
+
+        a:visited {
+            color: var(--link-vis-color);
         }
 
         .title  {
@@ -32,7 +52,17 @@
             font-weight: bold;
             margin-top:0;
         }
-        .underline { text-decoration: underline; }         
+        .intro {
+            text-align: center;
+            margin: 0;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
     </style>
 </head>
 <body>
@@ -45,92 +75,100 @@
                 <a href="https://github.com/bryangarza">@bryangarza</a>
             </p>
         </header>
-        <p>
-            I got tired of searching for these over and over, so I compiled them all in once place.
-        </p>
-        <p>
-            <a href="https://github.com/rust-lang/rust">rustc</a>, <a href="https://github.com/rust-lang/miri">miri</a>
-        </p>
-        <ul>
-            <li>
-                <a href="https://forge.rust-lang.org">Rust Forge (supplementary docs for rustc development)</a>
-            </li>
-            <li>
-                <a href="https://rust-lang.github.io/wg-async">Async Working Group</a>
-            </li>
-            <li>
-                <a href="https://rust-lang.github.io/compiler-team">Compiler Team Homepage</a>
-            </li>
-            <li>
-                <a href="https://rustc-dev-guide.rust-lang.org">Rustc Dev Guide</a>
-            </li>
-            <li>
-                <a href="https://std-dev-guide.rust-lang.org">Rust Standard Library Dev Guide</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/nightly/nightly-rustc/rustc_middle/">Nightly rustc docs (rustc_middle)</a>
-            </li>
-            <li>
-                <a href="https://rust-lang.github.io/rfcs/">The Rust RFC Book</a>
-            </li>
-            <li>
-                <a href="https://rfcbot.rs">Active RFC List (rfcbot.rs)</a>
-            </li>
-            <li>
-                <a href="https://bors.rust-lang.org/queue/rust">Bors queue</a>
-            </li>
-            <li>
-                <a href="https://rust.tf">Rust Thing Finder (many rustc shortlinks)</a>
-            </li>
-        </ul>
-
-        <p>
-            general
-        </p>
-        <ul>
-            <li>
-                <a href="https://nnethercote.github.io/perf-book/profiling.html">The Rust Performance Book</a>
-            </li>
-            <li>
-                <a href="https://rust-unofficial.github.io/patterns">Rust Design Patterns</a>
-            </li>
-            <li>
-                <a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API Guidelines</a>
-            </li>
-            <li>
-                <a href="https://github.com/rust-lang/rust-analyzer/blob/master/docs/dev/style.md">Rust-analyzer Style Guide (useful example)</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/book/">The Rust Book</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/nightly/reference/index.html">The Rust Reference</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/rust-by-example/">Rust by Example</a>
-            </li>
-            <li>
-                <a href="https://rust-lang.github.io/unsafe-code-guidelines/">Unsafe Code Guidelines Reference</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/nightly/nomicon/index.html">The Rustonomicon</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/nightly/unstable-book/index.html">The Rust Unstable Book</a>
-            </li>
-            <li>
-                <a href="https://doc.rust-lang.org/nightly/embedded-book/index.html">The Rust Embedded Book</a>
-            </li>
-            <li>
-                <a href="https://nrc.github.io/error-docs">Error Handling in Rust</a>
-            </li>
-            <li>
-                <a href="https://nrc.github.io/big-book-ffi">The Big Book of Rust Interop</a>
-            </li>
-            <li>
-                <a href="https://danielkeep.github.io/tlborm/book/">The Little Book of Rust Macros</a>
-            </li>
-        </ul>
+        <div class="intro">
+            frequently visited rust pages
+        </div>
+        <div>
+            <div class="main">
+                <div>
+                    <p>
+                        <a href="https://github.com/rust-lang/rust">rustc</a>, <a href="https://github.com/rust-lang/miri">miri</a>
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://forge.rust-lang.org">Rust Forge (supplementary rustc docs)</a>
+                        </li>
+                        <li>
+                            <a href="https://rust-lang.github.io/wg-async">Async Working Group</a>
+                        </li>
+                        <li>
+                            <a href="https://rust-lang.github.io/compiler-team">Compiler Team Homepage</a>
+                        </li>
+                        <li>
+                            <a href="https://rustc-dev-guide.rust-lang.org">Rustc Dev Guide</a>
+                        </li>
+                        <li>
+                            <a href="https://std-dev-guide.rust-lang.org">Rust Standard Library Dev Guide</a>
+                        </li>
+                        <li>
+                            <a href="https://doc.rust-lang.org/nightly/nightly-rustc/rustc_middle/">Nightly rustc docs (rustc_middle)</a>
+                        </li>
+                        <li>
+                            <a href="https://rust-lang.github.io/rfcs/">The Rust RFC Book</a>
+                        </li>
+                        <li>
+                            <a href="https://rfcbot.rs">Active RFC List (rfcbot.rs)</a>
+                        </li>
+                        <li>
+                            <a href="https://bors.rust-lang.org/queue/rust">Bors queue</a>
+                        </li>
+                        <li>
+                            <a href="https://rust.tf">Rust Thing Finder (many rustc shortlinks)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        general
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://nnethercote.github.io/perf-book/profiling.html">The Rust Performance Book</a>
+                        </li>
+                        <li>
+                            <a href="https://rust-unofficial.github.io/patterns">Rust Design Patterns</a>
+                        </li>
+                        <li>
+                            <a href="https://rust-lang.github.io/api-guidelines/about.html">Rust API Guidelines</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/rust-lang/rust-analyzer/blob/master/docs/dev/style.md">Rust-analyzer Style Guide (useful example)</a>
+                        </li>
+                        <li>
+                            <a href="https://doc.rust-lang.org/book/">The Rust Book</a>
+                        </li>
+                        <li>
+                            <a href="https://doc.rust-lang.org/nightly/reference/index.html">The Rust Reference</a>
+                        </li>
+                        <li>
+                            <a href="https://doc.rust-lang.org/rust-by-example/">Rust by Example</a>
+                        </li>
+                        <li>
+                            <a href="https://rust-lang.github.io/unsafe-code-guidelines/">Unsafe Code Guidelines Reference</a>
+                        </li>
+                        <li>
+                            <a href="https://doc.rust-lang.org/nightly/nomicon/index.html">The Rustonomicon</a>
+                        </li>
+                        <li>
+                            <a href="https://doc.rust-lang.org/nightly/unstable-book/index.html">The Rust Unstable Book</a>
+                        </li>
+                        <li>
+                            <a href="https://doc.rust-lang.org/nightly/embedded-book/index.html">The Rust Embedded Book</a>
+                        </li>
+                        <li>
+                            <a href="https://nrc.github.io/error-docs">Error Handling in Rust</a>
+                        </li>
+                        <li>
+                            <a href="https://nrc.github.io/big-book-ffi">The Big Book of Rust Interop</a>
+                        </li>
+                        <li>
+                            <a href="https://danielkeep.github.io/tlborm/book/">The Little Book of Rust Macros</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </body>
 </html>
